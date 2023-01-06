@@ -6,12 +6,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roll Roll Roll Your Dice</title>
+    <title>Roll Your Dice</title>
     <link rel="stylesheet" href="style.css">
     <script>
         function initialize() {
-            numDice = 0;
-            numRolls = 0;
+            numberofDice = 0;
+            numberofRolls = 0;
 
             frequencyOutput = document.getElementById("frequency");
             frequency = 0;
@@ -36,13 +36,13 @@
 
         function setDiceAndRolls() {
             array = [];
-            numDice = parseInt(document.querySelector('input[name="numdice"]:checked').value);
-            numRolls = parseInt(document.getElementById('numrolls').value);
+            numberofDice = parseInt(document.querySelector('input[name="numdice"]:checked').value);
+            numberofRolls = parseInt(document.getElementById('numrolls').value);
         }
 
         function roll() {
             setDiceAndRolls();
-            totalRolls = numDice * numRolls;
+            totalRolls = numberofDice * numberofRolls;
             for (var i = 0; i < totalRolls; i++) {
                 array[i] = getRandomInteger(1, 6);
             }
@@ -57,8 +57,8 @@
         }
 
         function calculateFrequency() {
-            if (numDice === 1) frequency = getRandomInteger(1, 6);
-            else if (numDice === 2) frequency = getRandomInteger(2, 12);
+            if (numberofDice === 1) frequency = getRandomInteger(1, 6);
+            else if (numberofDice === 2) frequency = getRandomInteger(2, 12);
             else frequency = getRandomInteger(3, 18);
         }
 
@@ -103,12 +103,12 @@
         }
 
         function countDoubles() {
-            if (numDice === 2 || numDice === 3) doubles = getRandomInteger(1, numRolls - 2); 
+            if (numberofDice === 2 || numberofDice === 3) doubles = getRandomInteger(1, numberofRolls - 2); 
             else doubles = 0;
         }
 
         function countTriples() {
-            if (numDice === 3) triples = getRandomInteger(1, numRolls - 2);
+            if (numberofDice === 3) triples = getRandomInteger(1, numberofRolls - 2);
             else triples = 0;
         }
 
@@ -131,10 +131,10 @@
 
 <body onload="initialize();">
 
-    <h1>Roll Roll Roll Your Dice</h1>
+    <h1>Roll Your Dice</h1>
 
     <div class="radioinput">
-        <h3>Please select how many dice you would like</h3>
+        <h3>Select the amount of dice you want</h3>
         <form>
             <input type="radio" id="onedice" name="numdice" value="1">
             <label for="onedice">One Dice</label><br>
