@@ -133,33 +133,8 @@
 <body onload="initialize();">
 
     <h1>Roll The Dice</h1>
-
-    <div class="radioinput">
-        <h3>Select the number / amount of dice you want</h3>
-        <form>
-            <input type="radio" id="onedice" name="numdice" value="1">
-            <label for="onedice">One Die</label><br>
-            <input type="radio" id="twodice" name="numdice" value="2">
-            <label for="twodice">Two Dice</label><br>
-            <input type="radio" id="threedice" name="numdice" value="3">
-            <label for="threedice">Three Dice</label><br>
-        </form>
-    </div>
-
-    <div class="textinput">
-        <h3>Choose the number of rolls you would like</h3>
-        <form>
-            <input type="number" id="numrolls" name="numrolls">
-        </form>
-    </div>
-
-    <br>
-
-    <button id="button" onclick="roll();">Roll</button>
-
-    <br>
-
-    <div class="table">
+  
+ <div class="table">
         <table>
             <tr>
                 <th>Frequency</th>
@@ -186,7 +161,32 @@
                 <td id="mode"></td>
             </tr>
         </table>
+    </div>   
+    
+    <div class="radioinput">
+        <h3>Select the number / amount of dice you want</h3>
+        <form>
+            <input type="radio" id="onedice" name="numdice" value="1">
+            <label for="onedice">One Die</label><br>
+            <input type="radio" id="twodice" name="numdice" value="2">
+            <label for="twodice">Two Dice</label><br>
+            <input type="radio" id="threedice" name="numdice" value="3">
+            <label for="threedice">Three Dice</label><br>
+        </form>
     </div>
+
+    <div class="textinput">
+        <h3>Choose the number of rolls you would like</h3>
+        <form>
+            <input type="number" id="numrolls" name="numrolls">
+        </form>
+    </div>
+
+    <br>
+
+    <button id="button" onclick="roll();">Roll</button>
+
+    <br>
     
 </body>
 
