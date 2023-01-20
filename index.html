@@ -8,30 +8,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roll The Dice</title>
     <img id="coverImage" src="man.jpg.webp" alt="Man rolling dice">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="worker.css">
     <script>
         function initialize() {
             numberofDice = 0;
             numberofRolls = 0;
-            
-            frequency = 0;
-            freqoutput = document.getElementById("frequency");
 
-            medoutput = document.getElementById("median");
-            median = 0;
-            
-            mean = 0;
+            frequencyOutput = document.getElementById("frequency");
+            frequency = 0;
+
             meanOutput = document.getElementById("mean");
+            mean = 0;
+
+            medianOutput = document.getElementById("median");
+            median = 0;
 
             modeOutput = document.getElementById("mode");
             mode = 0;
 
+            doublesOutput = document.getElementById("doubles");
+            doubles = 0;
+
             triplesOutput = document.getElementById("triples");
             triples = 0;
 
-            doublesOutput = document.getElementById("doubles");
-            doubles = 0;
-            
             array = [];
         }
 
@@ -47,23 +47,23 @@
             for (var i = 0; i < totalRolls; i++) {
                 array[i] = getRandomInteger(1, 6);
             }
-            console.log("roll successful");
-            calculateFrequency();
-            countDoubles();
-            countTriples();
-            calculateMean();
-            calculateMedian();
-            calculateMode();
-            display();
+            console.log("Congrats on the successful role");
+            FreqCalc();
+            doublecount();
+            triplecount();
+            MeanCalc();
+            MedCalc();
+            Modecalc();
+            displayresults();
         }
 
-        function calculateFrequency() {
+        function FreqCalc() {
             if (numberofDice === 1) frequency = getRandomInteger(1, 6);
             else if (numberofDice === 2) frequency = getRandomInteger(2, 12);
             else frequency = getRandomInteger(3, 18);
         }
 
-        function calculateMean() {
+        function MeanCalc() {
             sum = 0.0;
             for (var i = 0; i < array.length; i++) {
                 sum += array[i];
@@ -71,7 +71,7 @@
             mean = Math.round((sum / array.length) * 100) / 100;
         }
 
-        function calculateMedian() {
+        function MedCalc() {
             array.sort();
             if (array.length % 2 === 0) {
                 middleSum = array[array.length / 2] + array[array.length / 2 + 1];
@@ -82,33 +82,33 @@
             }
         }
 
-        function calculateMode() {
-            let modeAraay = [];
+        function Modecalc() {
+            let modeArr = [];
             let max = 0 
             let count = 0;
             for (let i = 0; i < array.length; i++) {
                 const item = array[i];
                 
-                if (modeAraay[item]) {
-                    modeAraay[item]++;
+                if (modeArr[item]) {
+                    modeArr[item]++;
                 } else {
-                    modeAraay[item] = 1;
+                    modeArr[item] = 1;
                 }
                 
-                if (count < modeAraay[item]) {
+                if (count < modeArr[item]) {
                     max = item;
-                    count = modeAraay[item];
+                    count = modeArr[item];
                 }
             }
             mode = max;
         }
 
-        function countDoubles() {
+        function doublecount() {
             if (numberofDice === 2 || numberofDice === 3) doubles = getRandomInteger(1, numberofRolls - 2); 
             else doubles = 0;
         }
 
-        function countTriples() {
+        function triplecount() {
             if (numberofDice === 3) triples = getRandomInteger(1, numberofRolls - 2);
             else triples = 0;
         }
@@ -119,12 +119,12 @@
             return rnd;
         }
 
-        function display() {
-            freqout.innerHTML = frequency;
+        function displayresults() {
+            frequencyOutput.innerHTML = frequency;
             doublesOutput.innerHTML = doubles;
             triplesOutput.innerHTML = triples;
             meanOutput.innerHTML = mean;
-            medoutput.innerHTML = median;
+            medianOutput.innerHTML = median;
             modeOutput.innerHTML = mode;
         }
     </script>
@@ -184,7 +184,7 @@
 
     <br>
 
-    <button id="button" onclick="roll();">Roller</button>
+    <button id="button" onclick="roll();">Roll</button>
 
     <br>
     
