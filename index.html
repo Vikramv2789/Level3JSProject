@@ -13,25 +13,25 @@
         function initialize() {
             numberofDice = 0;
             numberofRolls = 0;
-
-            frequencyOutput = document.getElementById("frequency");
+            
             frequency = 0;
+            freqoutput = document.getElementById("frequency");
 
-            meanOutput = document.getElementById("mean");
-            mean = 0;
-
-            medianOutput = document.getElementById("median");
+            medoutput = document.getElementById("median");
             median = 0;
+            
+            mean = 0;
+            meanOutput = document.getElementById("mean");
 
             modeOutput = document.getElementById("mode");
             mode = 0;
 
-            doublesOutput = document.getElementById("doubles");
-            doubles = 0;
-
             triplesOutput = document.getElementById("triples");
             triples = 0;
 
+            doublesOutput = document.getElementById("doubles");
+            doubles = 0;
+            
             array = [];
         }
 
@@ -83,21 +83,21 @@
         }
 
         function calculateMode() {
-            let modeArr = [];
+            let modeAraay = [];
             let max = 0 
             let count = 0;
             for (let i = 0; i < array.length; i++) {
                 const item = array[i];
                 
-                if (modeArr[item]) {
-                    modeArr[item]++;
+                if (modeAraay[item]) {
+                    modeAraay[item]++;
                 } else {
-                    modeArr[item] = 1;
+                    modeAraay[item] = 1;
                 }
                 
-                if (count < modeArr[item]) {
+                if (count < modeAraay[item]) {
                     max = item;
-                    count = modeArr[item];
+                    count = modeAraay[item];
                 }
             }
             mode = max;
@@ -120,11 +120,11 @@
         }
 
         function display() {
-            frequencyOutput.innerHTML = frequency;
+            freqout.innerHTML = frequency;
             doublesOutput.innerHTML = doubles;
             triplesOutput.innerHTML = triples;
             meanOutput.innerHTML = mean;
-            medianOutput.innerHTML = median;
+            medoutput.innerHTML = median;
             modeOutput.innerHTML = mode;
         }
     </script>
@@ -184,7 +184,7 @@
 
     <br>
 
-    <button id="button" onclick="roll();">Roll</button>
+    <button id="button" onclick="roll();">Roller</button>
 
     <br>
     
