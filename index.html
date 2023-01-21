@@ -35,17 +35,17 @@
             array = [];
         }
 
-        function setDiceAndRolls() {
+        function setthediceandroll() {
             array = [];
             numberofDice = parseInt(document.querySelector('input[name="numdice"]:checked').value);
             numberofRolls = parseInt(document.getElementById('numrolls').value);
         }
 
-        function roll() {
-            setDiceAndRolls();
-            totalRolls = numberofDice * numberofRolls;
-            for (var i = 0; i < totalRolls; i++) {
-                array[i] = getRandomInteger(1, 6);
+        function roller() {
+            setthediceandroll();
+            totalRollnums = numberofDice * numberofRolls;
+            for (var j = 0; j < totalRollnums; j++) {
+                array[j] = getRandomInteger(1, 6);
             }
             console.log("Congrats on the successful role");
             FreqCalc();
@@ -63,14 +63,6 @@
             else frequency = getRandomInteger(3, 18);
         }
 
-        function MeanCalc() {
-            sum = 0.0;
-            for (var i = 0; i < array.length; i++) {
-                sum += array[i];
-            }
-            mean = Math.round((sum / array.length) * 100) / 100;
-        }
-
         function MedCalc() {
             array.sort();
             if (array.length % 2 === 0) {
@@ -80,6 +72,22 @@
             else {
                 median = array[Math.round(array.length / 2)];
             }
+        }
+
+        function MeanCalc() {
+            Totalval = 0.0;
+            for (var i = 0; i < array.length; i++) {
+                Totalval += array[i];
+            }
+            mean = Math.round((Totalval / array.length) * 100) / 100;
+        }
+
+
+        
+
+        function doublecount() {
+            if (numberofDice === 2 || numberofDice === 3) doubles = getRandomInteger(1, numberofRolls - 2); 
+            else doubles = 0;
         }
 
         function Modecalc() {
@@ -103,20 +111,15 @@
             mode = max;
         }
 
-        function doublecount() {
-            if (numberofDice === 2 || numberofDice === 3) doubles = getRandomInteger(1, numberofRolls - 2); 
-            else doubles = 0;
-        }
-
         function triplecount() {
             if (numberofDice === 3) triples = getRandomInteger(1, numberofRolls - 2);
             else triples = 0;
         }
 
         function getRandomInteger(lower, upper) {
-            var multiplier = upper - lower + 1;
-            var rnd = parseInt(Math.random() * multiplier) + lower;
-            return rnd;
+            var multiplicated = upper - lower + 1;
+            var rounder = parseInt(Math.random() * multiplicated) + lower;
+            return rounder;
         }
 
         function displayresults() {
@@ -163,7 +166,7 @@
         </table>
     </div>   
     
-    <div class="radioinput">
+    <div class="rinput">
         <h3>Select the number / amount of dice you want</h3>
         <form>
             <input type="radio" id="onedice" name="numdice" value="1">
@@ -175,18 +178,19 @@
         </form>
     </div>
 
-    <div class="textinput">
+    <br>
+
+    <button id="button" onclick="roller();">Roller</button>
+
+    <br>
+
+    <div class="tinput">
         <h3>Choose the number of rolls you would like</h3>
         <form>
             <input type="number" id="numrolls" name="numrolls">
         </form>
     </div>
 
-    <br>
-
-    <button id="button" onclick="roll();">Roll</button>
-
-    <br>
     
 </body>
 
