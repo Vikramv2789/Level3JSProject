@@ -14,26 +14,23 @@
             numberofDice = 0;
             numberofRolls = 0;
 
-           
-            freqret = document.getElementById("frtrele");
+            frequencyOutput = document.getElementById("frequency");
             frequency = 0;
 
-            meanret = document.getElementById("gtrag");
+            meanOutput = document.getElementById("mean");
             mean = 0;
 
-            medret = document.getElementById("mgrfsf");
+            medianOutput = document.getElementById("median");
             median = 0;
 
-            modret = document.getElementById("ghjfj");
+            modeOutput = document.getElementById("mode");
             mode = 0;
 
-            doubleret = document.getElementById("ghddjgj");
+            doublesOutput = document.getElementById("doubles");
             doubles = 0;
 
-            triplerett = document.getElementById("gdhsnfhvjf");
+            triplesOutput = document.getElementById("triples");
             triples = 0;
-
-            array = [];
 
             array = [];
         }
@@ -126,12 +123,12 @@
         }
 
         function displayresults() {
-            freqret.innerHTML = frequency;
-            doubleret.innerHTML = doubles;
-            triplerett.innerHTML = triples;
-            meanret.innerHTML = mean;
-            medret.innerHTML = median;
-            modret.innerHTML = mode;
+            frequencyOutput.innerHTML = frequency;
+            doublesOutput.innerHTML = doubles;
+            triplesOutput.innerHTML = triples;
+            meanOutput.innerHTML = mean;
+            medianOutput.innerHTML = median;
+            modeOutput.innerHTML = mode;
         }
     </script>
 </head>
