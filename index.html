@@ -32,11 +32,11 @@
     triplerett = document.getElementById("gdhsnfhvjf");
     triples = 0;
 
-    array = [];
+    therray = [];
 }
 
 function setthediceandroll() {
-    array = [];
+    therray = [];
     numberofDice = parseInt(document.querySelector('input[name="numdice"]:checked').value);
     numberofRolls = parseInt(document.getElementById('numrolls').value);
 }
@@ -45,7 +45,7 @@ function roller() {
     setthediceandroll();
     totalRollnums = numberofDice * numberofRolls;
     for (var j = 0; j < totalRollnums; j++) {
-        array[j] = getRandomInteger(1, 6);
+        therray[j] = getRandomInteger(1, 6);
     }
     console.log("Congrats on the successful role");
     FreqCalc();
@@ -64,24 +64,23 @@ function FreqCalc() {
 }
 
 function MedCalc() {
-    array.sort();
-    if (array.length % 2 === 0) {
-        middleSum = array[array.length / 2] + array[array.length / 2 + 1];
+    therray.sort();
+    if (therray.length % 2 === 0) {
+        middleSum = therray[therray.length / 2] + therray[therray.length / 2 + 1];
         median = Math.round((middleSum / 2.0) * 10) / 10;
     }
     else {
-        median = array[Math.round(array.length / 2)];
+        median = therray[Math.round(therray.length / 2)];
     }
 }
 
 function MeanCalc() {
     Totalval = 0.0;
-    for (var i = 0; i < array.length; i++) {
-        Totalval += array[i];
+    for (var i = 0; i < therray.length; i++) {
+        Totalval += therray[i];
     }
-    mean = Math.round((Totalval / array.length) * 100) / 100;
+    mean = Math.round((Totalval / therray.length) * 100) / 100;
 }
-
 
 
 
@@ -91,21 +90,21 @@ function doublecount() {
 }
 
 function Modecalc() {
-    let modeArr = [];
+    let module = [];
     let max = 0 
     let count = 0;
-    for (let i = 0; i < array.length; i++) {
-        const item = array[i];
+    for (let i = 0; i < therray.length; i++) {
+        const item = therray[i];
         
-        if (modeArr[item]) {
-            modeArr[item]++;
+        if (module[item]) {
+            module[item]++;
         } else {
-            modeArr[item] = 1;
+            module[item] = 1;
         }
         
-        if (count < modeArr[item]) {
+        if (count < module[item]) {
             max = item;
-            count = modeArr[item];
+            count = module[item];
         }
     }
     mode = max;
