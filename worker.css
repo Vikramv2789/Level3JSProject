@@ -6,7 +6,15 @@ body {
     flex-direction: column;
 }
 
-h1, h2, h3 {
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h2 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h3 {
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -21,6 +29,11 @@ label{
     font-family: 'Courier New', Courier, monospace;
 }
 
+img {
+    width: 400px;
+    height: 400px;
+  }
+
 .textinput {
     display: flex;
     flex-direction: column;
@@ -28,11 +41,19 @@ label{
     font-family: 'Courier New', Courier, monospace;
 }
 
-#onedice, #twodice, #threedice {
+#onedie{
     accent-color: red;
 }
 
-#numrolls {
+#forttwo{
+    accent-color: red;
+}
+
+#fortthree{
+    accent-color: red;
+}
+
+#numberOfRolls {
     margin-left: 35%;
     width: 30%;
     border: 2px solid lightblue;
@@ -40,10 +61,10 @@ label{
 
 #button {
     width: 8%;
-    height: 45px;
-    border: 3px solid lightgreen;
+    height: 30px;
+    border: 5px solid lightgreen;
     font-family: 'Courier New', Courier, monospace;
-    font-size: large;
+    font-size: medium;
 }
 
 .table, th, td {
